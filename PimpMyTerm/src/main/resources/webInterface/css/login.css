@@ -1,0 +1,149 @@
+body {
+ 
+ background-color: black;
+ margin:0;
+ padding:0;
+ -webkit-background-size: cover; /* pour anciens Chrome et Safari */
+ background-size: cover; /* version standardis�e */
+ cursor: url('/cursors/Amiga/OS4.1.cur'), auto;	
+}
+
+.noselect{
+	-webkit-touch-callout: text; /* iOS Safari */
+    -webkit-user-select: text; /* Safari */
+     -khtml-user-select: text; /* Konqueror HTML */
+       -moz-user-select: text; /* Old versions of Firefox */
+        -ms-user-select: text; /* Internet Explorer/Edge */
+            user-select: text; /* Non-prefixed version, currently*/
+}
+
+.blink {
+  animation: blinker 1s linear infinite;
+}
+
+.loginForm {
+  display:none;
+  width: 298px;
+  position: fixed;
+  right:300px;
+  bottom:340px;	
+	border-color: rgb(128, 128, 128);
+	border-style: solid;
+	border-width: 5px;
+}
+
+.textField {
+  	background-color: rgb(65, 65, 65);
+	font-size: 14px;
+	font-family: "Amiga";
+	padding:2px;
+}
+
+.loginButton {
+  height:80px;
+  position: fixed;
+  right:270px;
+  bottom:335px;	
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+
+@font-face {
+ font-family: "Amiga";
+ src: url("/fonts/amiga/amiga4everp2.ttf") format("truetype");
+}
+
+.guruBox {
+	border-style: solid;
+	height:100px;
+	margin:10px;
+	padding:15px;
+	border-color: red;
+	background-color: rgb(0, 0, 0);
+	color:red;
+	border-width: 20px;	
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Opera and Firefox */
+}
+
+.title{
+	position:relative;
+	z-index:100;
+	font-size: 24px;
+	font-family: "Amiga";
+	text-align: center;
+}
+
+.bg{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  background-position: center center;
+  background-origin: content-box;
+  background-size: cover;
+  background-attachment: fixed;
+  z-index: -2;
+}
+
+
+
+.lightning{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  background-position: center center;
+  background-origin: content-box;
+  background-size: cover;
+  background-attachment: fixed;
+  -webkit-filter: brightness(3);
+  filter: brightness(3);
+  -o-filter: brightness(3);
+  -moz-filter: brightness(3);
+  z-index: -1;
+}
+
+
+/*Now just a opacity animation*/
+.flashit{
+-webkit-animation: flash ease-out 4s infinite;
+-moz-animation: flash ease-out 4s infinite;
+animation: flash ease-out 4s infinite;
+animation-delay: 0s;
+}
+
+@-webkit-keyframes flash {
+	from { opacity: 0; } 
+  92% { opacity: 0; }
+	93% { opacity: 0.6; }
+  94% { opacity: 0.2; }
+  96% { opacity: 0.9; } 
+	to { opacity: 0; }
+}
+
+@keyframes flash {
+	from { opacity: 0; } 
+    92% { opacity: 0; }
+	93% { opacity: 0.6; }
+    94% { opacity: 0.2; }
+    96% { opacity: 1; } 
+	to { opacity: 0; }
+}

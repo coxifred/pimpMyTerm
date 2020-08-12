@@ -1,0 +1,86 @@
+body {
+/* color:black; */
+/* background-color:red; */
+background-image: url('/images/themes/Solaris/background.png') ;
+}
+
+
+.themeHeight{
+height:50;
+}
+
+.session_clean_theme{
+	display:inline;
+	position:absolute;
+	right:150px;
+	top:2px;
+	z-index:10;
+	background-image: url('/images/clean.png') ;
+	background-size: 20px 20px;
+	background-repeat: no-repeat;
+	height:20px;
+	width:20px;
+}
+
+.session_size_theme{
+	display:inline;
+	position:absolute;
+	right:75px;
+	top:4px;
+	z-index:10;
+	font-size:14px;
+}
+
+
+.boxTheme{
+	color:#FFFFFF;	
+    background-color: #888888;
+}
+
+.RootPasswdInputTheme{
+	color:#FFFFFF;
+	background-color: #000000;
+}
+
+.boxTransparenteLastUser{
+	/* color:#FFFFFF;	 */
+background-color: #000000;
+/*border: 1px solid #ff9138;*/
+-moz-border-radius: 3px;
+-webkit-border-radius: 3px;
+border-radius: 3px;
+/*IE 7 AND 8 DO NOT SUPPORT BORDER RADIUS*/
+-moz-box-shadow: 0px 0px 20px #000000;
+-webkit-box-shadow: 0px 0px 20px #000000;
+box-shadow: 0px 0px 20px #000000;
+/*IE 7 AND 8 DO NOT SUPPORT BLUR PROPERTY OF SHADOWS*/
+opacity:0.7;
+height:300px;
+width:380px;
+position:fixed;
+color:#FFFFFF;	
+}
+
+.tableLastUser{
+	color:#FFFFFF;	
+}
+
+.boxTransparenteRootPasswd{
+/* color:#FFFFFF;	 */
+background-color: #000000;
+border: 1px solid #333333;
+-moz-border-radius: 3px;
+-webkit-border-radius: 3px;
+border-radius: 3px;
+
+
+/*IE 7 AND 8 DO NOT SUPPORT BORDER RADIUS*/
+-moz-box-shadow: 0px 0px 20px #000000;
+-webkit-box-shadow: 0px 0px 20px #000000;
+box-shadow: 0px 0px 20px #000000;
+/*IE 7 AND 8 DO NOT SUPPORT BLUR PROPERTY OF SHADOWS*/
+opacity:0.9;
+height:100px;
+width:100px;
+position:fixed;
+}

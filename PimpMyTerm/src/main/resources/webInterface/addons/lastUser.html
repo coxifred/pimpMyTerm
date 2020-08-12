@@ -1,0 +1,114 @@
+<style>
+
+.boxTransparenteLastUser{
+/* color:#FFFFFF;	 */
+/* background-color: #000000; */
+/*border: 1px solid #ff9138;*/
+-moz-border-radius: 3px;
+-webkit-border-radius: 3px;
+border-radius: 3px;
+/*IE 7 AND 8 DO NOT SUPPORT BORDER RADIUS*/
+-moz-box-shadow: 0px 0px 20px #000000;
+-webkit-box-shadow: 0px 0px 20px #000000;
+box-shadow: 0px 0px 20px #000000;
+/*IE 7 AND 8 DO NOT SUPPORT BLUR PROPERTY OF SHADOWS*/
+opacity:0.8;
+height:300px;
+width:380px;
+position:fixed;
+}
+</style>
+
+<script>
+$(document).ready(function () {
+	
+
+	$( "#abstractFunctions").load("addons/abstract.html");
+	var oldCurrentServerName="old";
+	var currentInstanceId="";
+	
+	
+	var refresh_LastUser = setInterval(
+			function ()
+			{
+				perform();
+			},1000); 
+	
+	function perform()
+	{
+		
+		var currentServerName=$("#focusServeur").html();
+		currentInstanceId=$("#focusId").html().replace("run_cmd_","");
+		//console.log("ThreadState " + $("#ReflexThread").html());
+		if ( $("#LastUserThread").html() == "stop" )
+			{
+			//console.log("Stopping thread for reflex");
+			clearInterval(refresh_LastUser);
+			$("#LastUserBox").remove();
+			}
+		
+		if ( typeof currentServerName != "undefined" && currentServerName != oldCurrentServerName && currentServerName != "" )
+			{
+			$("#LastUserReloadIcon").show();
+			oldCurrentServerName=currentServerName;
+			doJob(currentServerName);
+			$("#LastUserReloadIcon").hide();
+		
+			} 
+	}
+	
+	
+	function doJob(serverName)
+	{
+		var lastUser=getValueFromAction("TermAction!launchScriptAdmin?instanceId=" + currentInstanceId + "&command=LastUser.script",false);
+		//console.log("lastUser=" + lastUser);
+		var json = jQuery.parseJSON(lastUser);
+		var html="<table class=\"tableLastUser\" style=\"width:400px;font-size:10px;padding:1px;cellspacing:1px; \">";
+		var prefixe="http://annuaire-entreprise.inetpsa.com/photos/";
+		for (var user in json.results)
+			{
+			var decoup=json.results[user].split("|");
+			var firstUpperCaseLetter=decoup[0].substring(0,1).toUpperCase();
+			var firs3CharAfterFirstLetter=decoup[0].substring(1,4).toUpperCase();
+			if ( typeof decoup[0] != "undefined"  && firstUpperCaseLetter == "E" || firstUpperCaseLetter == "J" || firstUpperCaseLetter == "P" || firstUpperCaseLetter == "U" || firstUpperCaseLetter == "C")
+				{
+				
+				
+			html+="<tr height=36px>";
+			html+="<td width=36px style=\"padding:1px\">";
+			//alert(decoup[0]);
+			
+			if ( firstUpperCaseLetter != "E" )
+				{
+				html+="<img alt=\"No Image\" height=48px width=36px src=" + prefixe + firstUpperCaseLetter +"/"  + firs3CharAfterFirstLetter + "/" +  decoup[0].toUpperCase() + ".JPG >";
+				}else
+				{
+					html+="<img height=36px width=36px src=images/admin.png >";	
+				}	
+			html+="<br>";
+			html+="</td>";
+			html+="<td>";
+			html+=decoup[0] + " " + decoup[1] ;
+			html+="</td>";
+			html+="</tr>";
+				}
+			}
+    	
+		html+="</table>";
+    	$("#LastUsers").html(html);
+	}
+});
+
+</script>
+<div id=abstractFunctions name=abstractFunctions></div>
+<div id=LastUserBox name=LastUserBox class="boxTransparenteLastUser boxTheme" >
+	
+	<div id="LastUserCurrentServer" name="LastUserCurrentServer"></div>
+	<div id=LastUserReloadIcon name=LastUserReloadIcon style="position:relative;left:30%;top:15%"><img src=images/reload.png></div>
+	<div id=LastUserThread name=LastUserThread style="display:none"></div>
+	
+	<div id="LastUsers" name="LastUsers"></div>
+	
+    <div id="LastUser" class="box_close_theme box_close" style="display:inline;position:absolute;right:5px;top:3px;z-index:108\" ><img height=20px width=20px src=images/x.png></div>
+</div>
+	

@@ -1,0 +1,9 @@
+<pimpmyterm.core.Core>
+  <dataPath>.</dataPath>
+  <webServerPort>443</webServerPort>
+  <webSocketPort>4430</webSocketPort>
+  <webServerIp>192.168.2.186</webServerIp>
+  <debug>true</debug>
+  <debugJetty>true</debugJetty>
+  <adminPassword>admin</adminPassword>
+</pimpmyterm.core.Core>

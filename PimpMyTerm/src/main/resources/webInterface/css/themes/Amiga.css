@@ -1,0 +1,565 @@
+body {
+/* color:black; */
+/* background-color:red; */
+  margin:0;
+  padding:0;
+  cursor: url('/cursors/Amiga/OS4.1.cur'), auto;	
+  height: 100%; 
+  overflow: hidden
+}
+
+
+.TimberMenu{
+	display:inline;
+	
+}
+
+.noborder{
+	border:0px;
+}
+
+.workbench1{
+	background: url('/images/themes/Amiga/AmigaOS4.jpg')  center ; 
+	-webkit-background-size: cover; /* pour anciens Chrome et Safari */
+    background-size: cover; /* version standardis�e */	
+}
+
+
+
+.workbench2{
+	background: url('/images/themes/Amiga/background.jpg')  center ; 
+	-webkit-background-size: cover; /* pour anciens Chrome et Safari */
+    background-size: cover; /* version standardis�e */
+	display:none;
+}
+
+.workbench3{
+	background: url('/images/themes/Amiga/background_old.jpg')  center ; 
+	-webkit-background-size: cover; /* pour anciens Chrome et Safari */
+    background-size: cover; /* version standardis�e */
+	display:none;
+}
+
+.layer1{
+	position:absolute;
+	top:5px;
+	right:70px;
+}
+
+.layer2{
+	position:absolute;
+	top:5px;
+	right:40px;
+}
+
+.layer3{
+	position:absolute;
+	top:5px;
+	right:10px;
+}
+
+
+@font-face {
+ font-family: "AmigaGuru";
+ src: url("/fonts/amiga/amiga4everp2.ttf") format("truetype");
+}
+
+@font-face {
+ font-family: "Amiga";
+ src: url("/fonts/amiga/amiga4ever.ttf") format("truetype");
+}
+
+.workbench {
+	height:100%;
+    width:100%; 	
+}
+
+
+
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Opera and Firefox */
+}
+
+
+.blink {
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+.invisible{
+	display:none;
+}
+
+.titleGuru{
+	position:relative;
+	z-index:100;
+	font-size: 24px;
+	font-family: "AmigaGuru";
+	text-align: center;
+}
+
+.guruFail {
+	border-style: solid;
+	position:fixed;
+	
+	z-index:20000;
+	top:0px;
+	font-family: "AmigaGuru";
+	height:200px;
+	padding:15px;
+	border-color: red;
+	background-color: rgb(0, 0, 0);
+	color:red;
+	border-width: 20px;
+	width:100%;	
+}
+
+.menuAmiga {
+  position: absolute;
+  top:0px;
+  height:30px;
+  width:100%; 	
+  background : linear-gradient(#ffffff, #bbbbbb);
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.4);	
+  z-index:0;
+  
+}
+
+.menuContextAmiga {
+  position: absolute;
+  top:0px;
+  height:30px;
+  width:100%; 	
+  background : linear-gradient(#ffffff, #bbbbbb);
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.4);	
+  z-index:0;
+  display: none;
+}
+
+.ballAmigaMenu{
+  position: relative;
+  top:7px;
+  left:3px;
+  height:15px;
+  width:15px;
+}
+
+.textStateAmiga{
+  position: relative;
+  top:-11px;
+  left:25px;
+}
+
+.memory{
+  position: relative;
+  top:-30px;
+  left:150px;
+}
+
+.workBenchMenu{
+  position: absolute;
+  padding: 5px;
+  box-sizing: content-box;
+  top:1px;
+  left:10px;
+  margin: 0px;
+}
+
+.workBenchMenuContext{
+  display:none;
+  padding: 5px;
+  position: absolute;
+  box-sizing: content-box;
+  width:300px;
+  top:30px;
+  left:10px;
+  border: 1px solid black;
+  background-color : #bbbbbb;
+  box-shadow: 3px 2px 0px 1px rgba(0, 0, 0, 0.4);
+}
+
+.windowMenuContext{
+  display:none;
+  padding: 5px;
+  position: absolute;
+  box-sizing: content-box;
+  width:300px;
+  top:30px;
+  left:100px;
+  border: 1px solid black;
+  background-color : #bbbbbb;
+  box-shadow: 3px 2px 0px 1px rgba(0, 0, 0, 0.4);
+}
+
+.toolMenuContext{
+  display:none;
+  padding: 5px;
+  position: absolute;
+  box-sizing: content-box;
+  width:300px;
+  top:30px;
+  left:170px;
+  border: 1px solid black;
+  background-color : #bbbbbb;
+  box-shadow: 3px 2px 0px 1px rgba(0, 0, 0, 0.4);
+}
+
+.sessionsMenuContext{
+  display:none;
+  padding: 5px;
+  position: absolute;
+  box-sizing: content-box;
+  width:300px;
+  top:35px;
+  left:200px;
+  border: 1px solid black;
+  background-color : #bbbbbb;
+  box-shadow: 3px 2px 0px 1px rgba(0, 0, 0, 0.4);
+}
+
+.optionsMenuContext{
+  display:none;
+  padding: 5px;
+  position: absolute;
+  box-sizing: content-box;
+  width:300px;
+  top:55px;
+  left:200px;
+  border: 1px solid black;
+  background-color : #bbbbbb;
+  box-shadow: 3px 2px 0px 1px rgba(0, 0, 0, 0.4);
+}
+
+.soundMenuContext{
+  display:none;
+  padding: 5px;
+  position: absolute;
+  box-sizing: content-box;
+  width:300px;
+  top:70px;
+  left:400px;
+  border: 1px solid black;
+  background-color : #bbbbbb;
+  box-shadow: 3px 2px 0px 1px rgba(0, 0, 0, 0.4);
+}
+.themeMenuContext{
+  display:none;
+  padding: 5px;
+  position: absolute;
+  box-sizing: content-box;
+  width:300px;
+  top:90px;
+  left:400px;
+  border: 1px solid black;
+  background-color : #bbbbbb;
+  box-shadow: 3px 2px 0px 1px rgba(0, 0, 0, 0.4);
+}
+
+.windowMenu{
+  position: absolute;
+  padding: 5px;
+  box-sizing: content-box;
+  top:1px;
+  left:100px;
+  margin: 0px;
+}
+
+.toolMenu{
+  position: absolute;
+  padding: 5px;
+  box-sizing: content-box;
+  top:1px;
+  left:170px;
+  margin: 0px;
+}
+
+.subSessionIcon{
+	height:10px;
+	position:absolute;
+	left:298px;
+	top:10px;
+}
+
+.subOptionsIcon{
+	height:10px;
+	position:absolute;
+	left:298px;
+	top:30px;
+}
+
+
+.subSoundIcon{
+	height:10px;
+	position:absolute;
+	left:298px;
+	top:45px;
+}
+
+.subThemeIcon{
+	height:10px;
+	position:absolute;
+	left:298px;
+	top:65px;
+}
+
+.LogoTheme{
+	background-image: url('/images/themes/Amiga/amiga_ball.png') ;
+	background-size: 200px 200px;
+	z-index:-11;
+	top:256px;
+	left:256px;
+	position:fixed;
+	background-repeat: no-repeat;
+	height:200px;
+	width:200px;
+}
+
+.amigaButton{
+  box-sizing: content-box;
+  height:24px;
+/*   font-weight: bold; */
+  background : linear-gradient( #bbbbbb,#ffffff);
+  vertical-align:middle;
+  text-align: center; 
+  border: 0.04em solid grey;
+}
+
+
+
+.amigaButtonPressed{
+  box-sizing: content-box;
+  height:24px;
+/*   font-weight: bold; */
+  background : linear-gradient( #ffffff,#cccccc);
+  vertical-align:middle;
+  text-align: center; 
+}
+
+ .amigaButtonBack{
+  box-sizing: content-box;
+  height:24px;
+  border: 1px solid ;
+  border-color: white grey grey white;
+ }
+ 
+ 
+ 
+ .amigaListPerimeter{
+  box-sizing: content-box;
+  border: 1px solid darkgrey;
+  background-color : #bdbdbd;
+}
+
+ .amigaListBack{
+  box-sizing: content-box;
+  border: 1px solid ;
+  border-color: white #a8a8a8 #a8a8a8 white;
+  background-color : #bdbdbd;
+}
+ 
+ .amigaButtonBackPressed{
+  box-sizing: content-box;
+  height:24px;
+  border: 1px solid ;
+  border-color: grey white white grey;
+ }
+
+.amigaButtonPerimeter{
+  box-sizing: content-box;
+  height:26px;
+  border: 1px solid black;
+}
+
+.amigaButtonPerimeterPressed{
+  box-sizing: content-box;
+  height:26px;
+  border: 1px solid;
+  border-color: grey white white grey;
+}
+
+/*
+  Box 
+*/
+.amigaBoxHeader{
+	position:relative;
+	left:0px;
+	top:-27px;
+	height:25px;
+	border-top : solid;
+	border-top-color: black;
+	border-top-width:0.04em;
+	border-top-left-radius: 2px 2px;
+	background-image: url('/images/themes/Amiga/top_bar.png') ;
+	background-size: 20px 25px;
+	background-repeat: repeat-x;
+	width:100%;
+}
+
+.amigaBoxTopLeftCorner{
+	position:relative;
+	left:-1px;
+	top:-1px;
+	height:25px;
+	
+	background-image: url('/images/themes/Amiga/left_top_corner.png') ;
+	background-size: 20px 25px;
+	background-repeat: repeat-x;
+	z-index:100;
+	width:20px;
+}
+
+.amigaBoxTopRight1Corner{
+	position:absolute;
+	right:30px;
+	top:-1px;
+	height:25px;
+	
+	background-image: url('/images/themes/Amiga/right_top1_corner.png') ;
+	background-size: 13px 25px;
+	background-repeat: repeat-x;
+	z-index:100;
+	width:13px;
+}
+
+.amigaBoxTopRight2Corner{
+	position:absolute;
+	right:-1px;
+	top:-1px;
+	height:25px;
+	
+	background-image: url('/images/themes/Amiga/right_top2_corner.png') ;
+	background-size: 22px 25px;
+	background-repeat: repeat-x;
+	z-index:100;
+	width:22px;
+}
+
+.amigaBoxTitle{
+	position:relative;
+	left:25px;
+	top:-50px;
+	z-index:100;
+}
+
+.amigaBox{
+  box-sizing: border-box;
+  background : linear-gradient(#ffffff, #bbbbbb);
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.4);	
+  border: 1px solid;
+  z-index:0;
+}
+
+.amigaShellBox{
+  box-sizing: content-box;
+  background : linear-gradient(#ffffff, #bbbbbb);
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.4);	
+  border: 1px solid;
+  z-index:0;
+}
+
+.amigaBoxContainer{
+	position:relative;
+	border: 1px solid black;
+	box-shadow: 2px 2px 2px rgba(255, 255, 255, 0.4);
+	z-index:0;
+	top:-46px;
+	margin:0px 4px 30px 4px;
+}
+
+.ui-resizable-helper { 
+	border: 1px solid #00F; 
+}
+
+
+
+.terminalPimp {
+    font-family: "DejaVu Sans Mono", "Liberation Mono", monospace;
+    font-size: 12px;
+    color: #000000;
+    background: #CFCFCF;
+    line-height: 1.231;
+	opacity: 1;
+	overflow-y: auto;
+	-webkit-touch-callout: text; /* iOS Safari */
+    -webkit-user-select: text; /* Safari */
+     -khtml-user-select: text; /* Konqueror HTML */
+       -moz-user-select: text; /* Old versions of Firefox */
+        -ms-user-select: text; /* Internet Explorer/Edge */
+            user-select: text; /* Non-prefixed version, currently*/
+}
+
+.amigaText{
+	font_size:14px;
+}
+.amigaTextField{
+	font_size:14px;
+	border: 1px solid;
+    border-color: grey white white grey;
+    background-color : #bdbdbd;
+}
+
+/* Term css override Start */
+.term_header_theme
+{
+	font_size:14px;
+}
+
+
+.run_cmd_active {
+    background: #ffffff;
+}
+
+.term_selectable_theme{
+	position:relative;
+}
+
+
+
+.session_clean_theme{
+	display:inline;
+	position:absolute;
+	right:150px;
+	top:2px;
+	z-index:10;
+	background-image: url('/images/clean.png') ;
+	background-size: 20px 20px;
+	background-repeat: no-repeat;
+	height:20px;
+	width:20px;
+}
+/* Term css override End */
+
+.themeHeight{
+height:50;
+}
+
+.session_size_theme{
+	display:inline;
+	position:absolute;
+	right:75px;
+	top:4px;
+	z-index:10;
+	font-size:14px;
+}
+
+.boxTheme{
+	color:#FFFFFF;	
+    background-color: #FF0000;
+}
+
+.RootPasswdInputTheme{
+	color:#FF0000;
+	background-color: #000000;
+}

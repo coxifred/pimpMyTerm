@@ -1,0 +1,32 @@
+<script>
+$(document).ready(function () {
+	
+	 
+	
+	
+	$(".addonBox").draggable(
+			{
+  		      stop: function(e) {
+  		    	  console.log("Stop Drag " + $(e.target).attr('id') );
+  		    	  pushAddonSizeAndPosition($(e.target).attr('id'));
+  		      }
+  		}		
+	);		
+			
+	$(".box_close").click(function (e) 
+			{
+				var id= $(this).attr("id");
+				$("#" + id+"Thread").html("stop");
+				
+				
+				getValueFromAction("TermAction!removeAddon?command=" + id);
+			}
+		);
+			
+			
+	
+		
+	
+});
+
+</script>

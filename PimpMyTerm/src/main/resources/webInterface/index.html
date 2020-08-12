@@ -1,0 +1,119 @@
+<html>
+<head>
+
+
+
+
+
+<script src="javascript/jquery.js"></script>
+<link rel="stylesheet" type="text/css" href="css/login.css" />
+
+
+<script>
+
+
+
+     
+
+
+
+
+	$(document).ready(function() {
+		
+		$("body").click(function(e){
+			$("#loginForm").show();
+			});
+	
+		$("#login").click(function(e){
+			
+		getValueFromUrl("admin?action=login&user=" + $("#user").val() + "&passwd=" + $("#passwd").val(),true,toMainMenu);
+		});
+		
+		
+		function toMainMenu(logged)
+		{
+		 setUrl(logged);
+		}
+		
+		/**
+		 * Function Ajax
+		 * @param theUrl
+		 * @param asyncMode
+		 * @returns
+		 */
+		function getValueFromUrl(theUrl,asyncMode,myfunction) {
+			var retour; 
+			try 
+			{
+			var request = $
+					.ajax({
+						url : theUrl,
+						type : "POST",
+						data : {},
+						async : asyncMode,
+						dataType : "html",
+							error:function(xhr, status, errorThrown) {
+//							alert("ERROR ! " + errorThrown+'\n'+status+'\n'+xhr.statusText);
+								retour="ERROR";
+					        } 
+					});
+					
+			request
+					.done(function(msg) {
+						if ( typeof myfunction != "undefined" )
+							{
+							myfunction(msg);
+							}else
+								{
+						retour = trim(msg);
+								}
+						
+					});
+					return retour;
+					
+		}	catch (err)
+		{
+			retour = "ERROR";
+			return retour;
+			}
+		}
+		
+		function setUrl(url)
+		{
+			document.location=url;
+		}
+		
+		function trim (myString)
+	    {
+	    return myString.replace(/^\s+/g,'').replace(/\s+$/g,'');
+	    } 
+	});	
+</script>
+
+
+
+
+</head>
+
+<body >
+        <div class="bg"></div>
+		<div id=guruBox class="guruBox blink noselect">
+			<div class="title blink noselect">Software Failure.&nbsp;&nbsp;&nbsp;Press left mouse button to continue.</div><div>&nbsp;</div>
+			<div class="title blink noselect">Guru Meditation #00000025.65045338</div>
+		</div>
+	
+    	<div id=loginForm class=loginForm>
+	         <input class="textField noselect" type="text" id=user name="user" placeholder=" Username:" required="required" />
+	    	 <input class="textField noselect" type="password" id=passwd name="Passwd" placeholder=" Password:" required="required" />
+ 		 	 <img class="loginButton noselect" id=login type="submit" src=images/themes/Amiga/amiga_ball.png>
+		</div>
+		        
+    	<div class="lightning flashit"></div>
+    
+       <audio style="display:none" controls loop autoplay>
+               <source src=music/lotus.mp3 type="audio/mpeg">
+        </audio>
+
+	
+</body>
+</html>
