@@ -195,10 +195,10 @@ amigaTick=function amigaTick(id,style,check,classes)
 {
 	if (check)
 	{
-		return "<div style=\"" + style + "\"  ><img height=15px width=15px src=/images/themes/Amiga/ticked.png id=\"" + id + "\" class=\"amigaTick " + classes + "\"></div>";
+		return "<div style=\"" + style + "\"  ><img height=15px width=15px src=/images/themes/Amiga/ticked.png id=\"" + id + "\" class=\"ticked amigaTick " + classes + "\"></div>";
 	} else
 	{
-		return "<div style=\"" + style + "\"  ><img height=15px width=15px src=/images/themes/Amiga/notick.png id=\"" + id + "\" class=\"amigaTick " + classes + "\"></div>";	
+		return "<div style=\"" + style + "\"  ><img height=15px width=15px src=/images/themes/Amiga/notick.png id=\"" + id + "\" class=\"noticked amigaTick " + classes + "\"></div>";	
 	}
 }
 
@@ -343,58 +343,84 @@ function addSessionManager(workbench)
 			);
 	$(".sessionManagerBox" ).hide();
 	
+}
 	
-	
-	
-	
-	$(".useCredential").click(function() {	
-		var disabled=$('body').find(".loginName").prop("disabled");
-		if (disabled )
+	function mouseUpuseCredential(workbenchId)
+	{ 
+		
+		var activated=getChecked("useCredential",workbenchId);
+		if (activated )
 			{
-			$('body').find(".loginName").prop("disabled",false); 
-			$('body').find(".password").prop("disabled",false); 
+				
+			$("#" +workbenchId ).find(".loginName").prop("disabled",false); 
+			$("#" +workbenchId ).find(".password").prop("disabled",false); 
 			}else
 				{
-				$('body').find(".loginName").prop("disabled",true);
-				$('body').find(".loginName").val("");
-				$('body').find(".password").prop("disabled",true);
-				$('body').find(".password").val(""); 
+				$("#" +workbenchId ).find(".loginName").prop("disabled",true);
+				$("#" +workbenchId ).find(".password").prop("disabled",true);
 				}
-	});
+	}
 	
-	
-}
+
 
 
 function mouseUpapplySessionButton(workbenchId)
 {
 	mouseUpaddSessionButton(workbenchId);
 }
-
-function mouseUpaddSessionButton(workbenchId){
+function mouseUpdeleteSessionButton (workbenchId)
+{
 	if ( $("#" +workbenchId ).find(".sessionId").val() != "" && $("#" +workbenchId ).find(".hostId").val() != "" )
 	{
+		sessions.delete($("#" +workbenchId ).find(".sessionId").val());
+		displayListSession("workbench1");
+		displayListSession("workbench2");
+		displayListSession("workbench3");	
+	}
+	
+}
+function mouseUpaddSessionButton(workbenchId){
+	
+	//sessions.clear();
+	
+	
+	if ( $("#" +workbenchId ).find(".sessionId").val() != "" && $("#" +workbenchId ).find(".hostId").val() != "" )
+	{
+		
 		newSession={
 			   "sessionId"     : $("#" +workbenchId ).find(".sessionId").val(),
 			   "hostId"        : $("#" +workbenchId ).find(".hostId").val(),
-			   "showInTab"     : getChecked("showInTab"),
-			   "showWorkbench" : getChecked("showWorkbench"),
-			   "transparent"   : getChecked("transparent"),
-			   "useCredential" : getChecked("useCredential"),
+			   "showInTab"     : getChecked("showInTab",workbenchId),
+			   "showWorkbench" : getChecked("showWorkbench",workbenchId),
+			   "transparent"   : getChecked("transparent",workbenchId),
+			   "useCredential" : getChecked("useCredential",workbenchId),
 			   "loginName"     : $("#" +workbenchId ).find(".loginName").val(),
 			   "password"      : $("#" +workbenchId ).find(".password").val(),
 		};
-		sessions.set($("#" +workbenchId ).find(".sessionId").val(),newSession);
-		log(newSession);
-		loadSessions("workbench1");
-		loadSessions("workbench2");
-		loadSessions("workbench3");
+		
+		
+		sessions.set(newSession.sessionId,newSession);
+		console.log(sessions);
+	   
+		console.log("SAVE " + $("#" +workbenchId ).find(".sessionId").val() + "==>" + newSession.useCredential);
+		console.log(newSession);
+		console.log(sessions);
+		//loadSessions("workbench1");
+		//loadSessions("workbench2");
+		//loadSessions("workbench3");
+		displayListSession("workbench1");
+		displayListSession("workbench2");
+		displayListSession("workbench3");
 		
 	}
 }
 
 function loadSession(elementId){
+		console.log(sessions);
+
 		aSession=sessions.get(elementId);
+		console.log("RELOAD " + aSession.useCredential);
+		console.log(aSession);
 		$('body').find(".sessionId").val(aSession.sessionId);
 		$('body').find(".hostId").val(aSession.hostId);
 		setChecked("showInTab",aSession.showInTab);
@@ -412,8 +438,11 @@ function mouseUpsaveSessionButton(){
 function displayListSession(workbenchId){
 	$("#" + workbenchId).find(".listSession").html("");
 	$("#" + workbenchId).find(".sessionList").html("");
+	console.log("Display " + workbenchId);
 	for (var aSession of sessions.values())
 	{
+		
+		console.log(aSession);
 		$("#" + workbenchId).find(".listSession").append("<div style=position:relative;z-index=" + ztop + " class=\"selectionable loadable\" id=\"" + aSession.sessionId + "\">" + aSession.sessionId + "@" + aSession.hostId +"</div>");
 		$("#" + workbenchId).find(".sessionList").append("<div class=\"sessionable\" id=\"" + aSession.sessionId + "\">" + aSession.sessionId + "@" + aSession.hostId +"</div>");
 	}
@@ -619,7 +648,8 @@ function registerEvent()
 										
 										
 										$("body").delegate(".loadable", 'click', function(){
-											log("Click on loadble");
+											log("Click on loadable");
+											
 											currentSelectedObject=$(this).attr("id");
 											loadSession(currentSelectedObject);
 										});

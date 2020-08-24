@@ -50,7 +50,7 @@ public class SSHUtil {
 			session.setPassword(password);
 			session.setConfig("PreferredAuthentications", "publickey,keyboard-interactive,password");
 			session.setConfig("StrictHostKeyChecking", "no");
-			session.connect(60000);
+			session.connect(10000);
 
 			Channel channel = session.openChannel("shell");
 
