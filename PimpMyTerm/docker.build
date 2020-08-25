@@ -1,0 +1,10 @@
+echo "Version (1.1): " 
+read VERSION
+docker build --tag pimpmyterm:$VERSION .
+docker login
+
+docker tag pimpmyterm:$VERSION docker.io/coxifred/pimpmyterm:$VERSION
+docker push coxifred/pimpmyterm:$VERSION
+
+docker tag docker.io/coxifred/pimpmyterm:$VERSION docker.io/coxifred/pimpmyterm:latest
+docker push docker.io/coxifred/pimpmyterm:latest

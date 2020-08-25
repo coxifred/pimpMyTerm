@@ -1,0 +1,12 @@
+version: "2"
+services:
+  "pimpmyterm":
+    privileged: true
+    image: "coxifred/pimpmyterm"
+    container_name: "pimpmyterm"
+    restart: always
+    ports:
+      - "443:443"
+      - "4430:4430"
+    volumes:
+      - ./aCore.xml:/aCore.xml
