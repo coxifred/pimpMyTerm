@@ -73,7 +73,7 @@ Simply connect with https://<your_ip>
       - "443:443"
       - "4430:4430"
     volumes:
-      - /aCore.xml:/aCore.xml
+      - ./aCore.xml:/aCore.xml
   ```
   
   *Then simply run:* 
