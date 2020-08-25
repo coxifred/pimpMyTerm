@@ -1,6 +1,6 @@
 # Welcome to PimpMyTerm repository
 
-![Overview](https://github.com/coxifred/PimpMyTerm/blob/master/doc/pimpMyTerm.png?raw=true)
+![Overview](https://github.com/coxifred/pimpMyTerm/raw/master/docs/pimpMyTerm.jpg)
 
 # What is it ?
 
@@ -8,10 +8,11 @@ This little software allows you to manage your ssh sessions with:
   
   - Resilience (in case of network cutoff between you and pimpMyTerm server)
   - Amiga way of life
+  - 3 virtuals workbenchs
 
-*It's look like this:*
+*Starting looks like this:*
 
-![PimpMyTerm](https://github.com/coxifred/PimpMyTerm/blob/master/doc/pimpMyTerm.gif?raw=true)
+![PimpMyTerm](https://github.com/coxifred/pimpMyTerm/raw/master/docs/pimpMyTerm2.gif)
 
 # What do you need ?
 
