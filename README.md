@@ -27,7 +27,7 @@ cd pimpMyTerm
 ```
 Starting output:
 
-![PimpMyTerm](https://github.com/coxifred/PimpMyTerm/blob/master/doc/pimpMyTerm2.gif?raw=true)
+![PimpMyTerm](https://github.com/coxifred/pimpMyTerm/raw/master/docs/pimpMyTerm2.gif)
 
 * Note 1: start.sh or debug.sh launch gradlew in background (nohup).
 * Note 2: A log is created under /tmp and named superwatt.log
