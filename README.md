@@ -10,9 +10,9 @@ This little software allows you to manage your ssh sessions with:
   - Amiga way of life
   - 3 virtuals workbenchs
 
-*Starting looks like this:*
+*Looks like this:*
 
-![PimpMyTerm](https://github.com/coxifred/pimpMyTerm/raw/master/docs/pimpMyTerm2.gif)
+![PimpMyTerm](https://github.com/coxifred/pimpMyTerm/raw/master/docs/pimpMyTerm.gif)
 
 # What do you need ?
 
@@ -25,7 +25,7 @@ git clone https://github.com/coxifred/pimpMyTerm.git
 cd pimpMyTerm
 ./start.sh
 ```
-output:
+Starting output:
 
 ![PimpMyTerm](https://github.com/coxifred/PimpMyTerm/blob/master/doc/pimpMyTerm2.gif?raw=true)
 
