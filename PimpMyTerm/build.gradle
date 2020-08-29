@@ -52,6 +52,7 @@ jar {
 }
 
 task fatJar(type: Jar) {
+   zip64 true
    manifest {
     attributes(
       'Main-Class': 'pimpmyterm.CoreLauncher',
